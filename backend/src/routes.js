@@ -8,6 +8,8 @@ const SesesionFuncionarioController = require('./controllers/SessionFuncionarioC
 const ClienteController = require('./controllers/ClienteController'); // Cliente Controller
 const FuncionarioController = require('./controllers/FuncionarioController'); // Funcionário Controller
 const PetController = require('./controllers/PetController'); // Pet Controller
+const ConsultaController = require('./controllers/ConsultaController'); // Consulta Controller
+
 const routes = express.Router();
 
 routes.post('/session_cliente', SessionClienteController.create); // Login Cliente
@@ -22,5 +24,10 @@ routes.post('/funcionario', FuncionarioController.create); // Create Funcionario
 routes.get('/pet', PetController.index); // List Pet
 routes.post('/pet', PetController.create); // Create Pet
 routes.delete('/pet/:id', PetController.delete); // Delete Pet
+
+routes.get('/consulta', ConsultaController.index); // List Consulta
+routes.post('/consulta', ConsultaController.create); // Create Consulta
+routes.delete('/consulta/:id', ConsultaController.delete); // Delete Consulta
+
 
 module.exports = routes;
