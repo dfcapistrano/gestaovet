@@ -1,7 +1,7 @@
 // Arquivo principal da aplicação 
 
 const express = require('express'); 
-consr cors = require('cors');
+const cors = require('cors');
 const routes = require('./routes'); // Importa as rotas
 
 const app = express(); // Intancia a aplicação
