@@ -16,7 +16,7 @@ module.exports = {
     async create(request, response) {
         const { especialidade, data, hora, pet_id } = request.body; // Pega as informação 
         
-        const id = crypto.randomBytes(4).toString('HEX'); // Cria um ID personalizado para cada pet 
+        const id = crypto.randomBytes(4).toString('HEX'); // Cria um ID personalizado para cada consulta 
         
         const cliente_email = request.headers.authorization; // Pega o ID do Cliente logado
 
@@ -35,10 +35,10 @@ module.exports = {
 
     // Excluir
     async delete(request, response) {
-        const { id } = request.params; // Pega o ID do Pet
+        const { id } = request.params; // Pega o ID da Consulta
         const cliente_email = request.headers.authorization; // Pega o ID do Cliente
 
-        // Retorna o pet com ID e o CLIENTE_ID informado
+        // Retorna a consulta com ID e o CLIENTE_EMAIL informado
         const consulta = await connection('consulta')
             .where('id', id)
             .select('cliente_email')
