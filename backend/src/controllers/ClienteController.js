@@ -29,6 +29,6 @@ module.exports = {
             status,
         });
 
-        return response.json({ email, senha, status }); // Retorna o ID do usuário que foi inserido no banco
+        return response.json({ email }); // Retorna o Email do usuário que foi inserido no banco
     }
 };
