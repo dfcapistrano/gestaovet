@@ -9,6 +9,7 @@ const ClienteController = require('./controllers/ClienteController'); // Cliente
 const FuncionarioController = require('./controllers/FuncionarioController'); // Funcionário Controller
 const PetController = require('./controllers/PetController'); // Pet Controller
 const ConsultaController = require('./controllers/ConsultaController'); // Consulta Controller
+const { request } = require('express');
 
 const routes = express.Router();
 

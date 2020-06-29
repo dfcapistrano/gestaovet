@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import api from '../../services/api';
+import api from '../../services/api'; // import comunicação com backend
 
 import './styles.css';
 
 import logoImg from '../../assets/logo01.png';
 
 export default function NewConsulta() {
-  const [especialidade, setEspecialidade] = useState('');
+  const [especialidade, setEspecialidade] = useState([]);
   const [data, setData] = useState('');
   const [hora, setHora] = useState('');
   const [pet_id, setPet_id] = useState('');
@@ -22,7 +22,7 @@ export default function NewConsulta() {
     e.preventDefault();
 
     const dados = {
-      especialidade,data,hora,pet_id,
+      especialidade, data, hora, pet_id,
     };
 
     try {
@@ -54,25 +54,32 @@ export default function NewConsulta() {
         </section>
 
         <form onSubmit={handleNewConsulta}>
-          <input 
-            placeholder="Especialidade" 
+
+          <input
+            placeholder="Especialidade"
             value={especialidade}
             onChange={e => setEspecialidade(e.target.value)}
+            required="true"
           />
-          <input 
-            placeholder="Data" 
+
+          <input
+            placeholder="Data"
             value={data}
             onChange={e => setData(e.target.value)}
+            required="true"
           />
-          <input 
-            placeholder="Hora" 
+
+          <input
+            placeholder="Hora"
             value={hora}
             onChange={e => setHora(e.target.value)}
+            required="true"
           />
-          <input 
-            placeholder="Nome do Pet" 
+          <input
+            placeholder="Nome do Pet"
             value={pet_id}
             onChange={e => setPet_id(e.target.value)}
+            required="true"
           />
 
           <button className="button" type="submit">Cadastrar</button>

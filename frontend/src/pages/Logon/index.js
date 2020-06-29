@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
-import api from '../../services/api';
+import api from '../../services/api'; // import comunicação com backend
 
 import './styles.css'
 import heroesImg from '../../assets/pet02.jpg';
@@ -19,9 +19,9 @@ export default function Logon() {
     e.preventDefault();
 
     try {
-      const response = await api.post('session_cliente', { email, senha });
 
-      console.log(response.data.nome);
+
+      const response = await api.post('session_cliente', { email, senha });
 
       localStorage.setItem('clienteEmail', email);
       localStorage.setItem('clienteNome', response.data.nome);
@@ -44,12 +44,14 @@ export default function Logon() {
             placeholder="Seu email" 
             value={email}
             onChange={e => setEmail(e.target.value)}
+            required="true"
           />
           <input 
             type="password"
             placeholder="Sua senha" 
             value={senha}
             onChange={e => setSenha(e.target.value)}
+            required="true"
           />
           <button className="button" type="submit">Entrar</button>
 

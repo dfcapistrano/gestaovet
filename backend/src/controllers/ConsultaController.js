@@ -7,8 +7,11 @@ module.exports = {
 
     // Listar
     async index(request, response) {
-        const consultas = await connection('consulta').select('*'); // Seleciona tudo da tabela de Consulta
-        
+        const { id } = request.params; // Pega o ID da Consulta
+        const cliente_email = request.headers.authorization; // Pega o ID do Cliente
+
+        const consultas = await connection('consulta').select('*')
+            .where('cliente_email', cliente_email);
         return response.json(consultas); // Retorna todos os consultas cadastrados
     },
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import api from '../../services/api';
+import api from '../../services/api'; // import comunicação com backend
 
 import './styles.css';
 import logoImg from '../../assets/logo01.png';
@@ -56,28 +56,33 @@ export default function Register() {
             type="email" 
             placeholder="Email" 
             value={email}
-            onChange={e => setEmail(e.target.value)}          
+            onChange={e => setEmail(e.target.value)}  
+            required="true"        
           />
           <input 
             type="password" 
             placeholder="Senha" 
             value={senha}
             onChange={e => setSenha(e.target.value)}
+            required="true"
           />
           <input 
             placeholder="Nome" 
             value={nome}
             onChange={e => setNome(e.target.value)}
+            required="true"
           />
           <input 
             placeholder="Sobrenome" 
             value={sobrenome}
             onChange={e => setSobrenome(e.target.value)}
+            required="true"
           />
           <input 
             placeholder="Telefone" 
             value={telefone}
             onChange={e => setTelefone(e.target.value)}
+            required="true"
           />
 
           <div className="input-group">
@@ -85,12 +90,14 @@ export default function Register() {
               placeholder="Cidade" 
               value={cidade}
              onChange={e => setCidade(e.target.value)}
+             required="true"
             />
             <input 
               placeholder="UF" 
               style={{ width: 80 }} 
               value={estado}
               onChange={e => setEstado(e.target.value)}
+              required="true"
             />
           </div>
 
