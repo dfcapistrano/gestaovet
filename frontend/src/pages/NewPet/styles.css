@@ -28,12 +28,14 @@
   .new-consulta-container .content section {
     width: 100%;
     max-width: 380px;
+    margin-bottom: 150px;
   }
   
   .new-consulta-container .content section h1 {
     margin: 64px 0 32px;
     font-size: 32px;
-    margin-left: 70px;
+    margin-left:70px !important;
+  
   }
   
   .select{
@@ -52,7 +54,7 @@
     font-size: 18px;
     color: #737380;
     line-height: 32px;
-    text-indent: 50px;
+    text-indent: 25px;
   }
   
   .new-consulta-container .content form {
@@ -68,8 +70,6 @@
   .img-logo-pet {
     width: 200px;
     margin-left: 80px;
-    margin-top: 50px;
+
   }
-  
-  
   

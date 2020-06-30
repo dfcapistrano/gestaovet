@@ -9,7 +9,7 @@ import './styles.css';
 import logoImg from '../../assets/welcome.svg';
 
 export default function NewConsulta() {
-  const [especialidade, setEspecialidade] = useState([]);
+  const [especialidade, setEspecialidade]  = useState([]);
   const [data, setData] = useState('');
   const [hora, setHora] = useState('');
   const [pet_id, setPet_id] = useState('');

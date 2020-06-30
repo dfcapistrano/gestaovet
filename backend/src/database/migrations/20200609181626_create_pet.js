@@ -3,9 +3,9 @@ exports.up = function(knex) {
         table.string('id').primary(); // Chave primária
         table.string('nome').notNullable();
         table.string('raca').notNullable();
-        table.string('sexo').notNullable();
+        table.string('sexo',1).notNullable();
         table.string('especie').notNullable();
-        table.decimal('peso').notNullable();
+        table.double('peso').notNullable();
         table.integer('idade').notNullable();
         
         table.string('cliente_email').notNullable();

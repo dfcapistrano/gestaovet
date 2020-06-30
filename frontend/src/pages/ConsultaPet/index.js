@@ -8,7 +8,7 @@ import "./styles.css";
 
 import logoImg from "../../assets/profile.svg";
 
-export default function Consulta() {
+export default function ConsultaPet() {
   const history = useHistory();
 
   const [consultas, setConsultas] = useState([]);
@@ -18,7 +18,7 @@ export default function Consulta() {
 
   useEffect(() => {
     api
-      .get("consulta", {
+      .get("pet", {
         headers: {
           Authorization: clienteEmail,
         },
@@ -28,9 +28,9 @@ export default function Consulta() {
       });
   }, [clienteEmail]);
 
-  async function handleDeleteConsulta(id) {
+  async function handleDeleteConsultaPet(id) {
     try {
-      await api.delete(`consulta/${id}`, {
+      await api.delete(`pet/${id}`, {
         headers: {
           Authorization: clienteEmail,
         },
@@ -78,7 +78,6 @@ export default function Consulta() {
         </div>
         <hr></hr>
       </div>
-
       <div className="py-5">
         <ul>
           {consultas.map((consulta) => (
@@ -96,7 +95,7 @@ export default function Consulta() {
               <p>{consulta.pet_id}</p>
               <button
                 className="noBackground"
-                onClick={() => handleDeleteConsulta(consulta.id)}
+                onClick={() => handleDeleteConsultaPet(consulta.id)}
                 type="button"
               >
                 <FiTrash2 size={20} color="#a8a8b3" />

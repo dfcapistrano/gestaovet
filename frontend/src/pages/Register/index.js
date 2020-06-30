@@ -42,10 +42,7 @@ export default function Register() {
         <section>
           <h1>Cadastra-se</h1>
           <img className="img-logo-form" src={logoImg} alt="Gestão Vet" />
-
-         
           <p>Faça seu cadastro, entre na plataforma e agende a sua consulta.</p>
-
           <Link className="back-link" to="/">
             <FiArrowLeft size={16} color="#5C9E6B" />
             Voltar para a página inicial

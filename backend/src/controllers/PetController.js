@@ -14,12 +14,13 @@ module.exports = {
 
     // Criar
     async create(request, response) {
-        const { nome, raca, sexo, especie, peso, idade } = request.body; // Pega as informação 
-
+        const { nome, raca, sexo, especie, peso, idade } = request.body; // Pega as informação
         const id = crypto.randomBytes(4).toString('HEX'); // Cria um ID personalizado para cada pet 
         const cliente_email = request.headers.authorization; // Pega o ID do Cliente logado
         // Insere no banco de dados as informações
-        await connection('pet').insert({
+
+       
+        const [id_pet] = await connection('pet').insert({
             id,
             nome,
             raca,
@@ -30,7 +31,7 @@ module.exports = {
             cliente_email,
         });
 
-        return response.json({ id, nome, cliente_email }); // Retorna o ID do Pet e o nome que foi inserido no banco
+        return response.json({id_pet}); // Retorna o ID do Pet e o nome que foi inserido no banco
     },
 
     // Excluir
