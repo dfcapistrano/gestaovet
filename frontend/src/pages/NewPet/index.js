@@ -8,11 +8,11 @@ import './styles.css';
 
 import logoImg from '../../assets/pet_new.svg';
 
-export default function NewConsulta() {
-  const [especialidade, setEspecialidade] = useState([]);
-  const [data, setData] = useState('');
-  const [hora, setHora] = useState('');
-  const [pet_id, setPet_id] = useState('');
+export default function NewPet() {
+  const [nomePet, setNomePet] = useState([]);
+  const [raca, setRaca] = useState('');
+  const [sexo, setSexo] = useState('');
+  const [especie, setPet_id] = useState('');
 
   const history = useHistory();
 
@@ -22,11 +22,11 @@ export default function NewConsulta() {
     e.preventDefault();
 
     const dados = {
-      especialidade, data, hora, pet_id,
+      nomePet, data, hora, pet_id,
     };
 
     try {
-      await api.post('consulta', dados, {
+      await api.post('/pet', dados, {
         headers: {
           Authorization: clienteEmail,
         }
