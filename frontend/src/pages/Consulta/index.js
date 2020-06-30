@@ -67,16 +67,18 @@ export default function Consulta() {
         <div className="row">
           <div className="col">
             <h4 className="text-center">
-              <Link to="/consulta">Consultas</Link>
+              <Link className="color-link" to="/consulta">Consultas</Link>
+              <hr className="hr-link"></hr>
             </h4>
           </div>
+          
           <div className="col">
             <h4 className="text-center">
-              <Link to="/consulta/pet">Pet</Link>
+              <Link className="color-link" to="/consulta/pet">Pet</Link>
             </h4>
           </div>
         </div>
-        <hr></hr>
+       
       </div>
 
       <div className="py-5">

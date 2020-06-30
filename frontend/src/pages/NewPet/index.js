@@ -102,9 +102,9 @@ export default function NewPet() {
           className="select"
           required="true"
           >
-              <option disabled selected>Selecione um sexo</option>
-              <option value="M">Macho</option>
-              <option value="F">Femêa</option>
+             <option value="" disabled selected>Selecione um sexo</option>
+              <option value="Macho">Macho</option>
+              <option value="Fêmea">Fêmea</option>
           </select>
           
 

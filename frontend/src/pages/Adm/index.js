@@ -5,7 +5,7 @@ import { FiLogIn } from 'react-icons/fi';
 import api from '../../services/api'; // import comunicação com backend
 
 import './styles.css'
-import heroesImg from '../../assets/pet.svg';
+import heroesImg from '../../assets/adm.svg';
 import logoImg from '../../assets/logo01.png';
 
 
@@ -21,12 +21,12 @@ export default function Logon() {
     try {
 
 
-      const response = await api.post('session_cliente', { email, senha });
+      const response = await api.post('session_funcionario', { email, senha });
 
-      localStorage.setItem('clienteEmail', email);
-      localStorage.setItem('clienteNome', response.data.nome);
+      localStorage.setItem('admEmail', email);
+      localStorage.setItem('admNome', response.data.nome);
 
-      history.push('/consulta');
+      history.push('/dashboard/adm');
     } catch (err) {
       alert('Falha no login, tente novamente.');
     }
@@ -37,7 +37,7 @@ export default function Logon() {
       <section className="form">
         <img className="img-logo left" src={logoImg} alt="Gestão Vet" />
         <form onSubmit={handleLogin}>
-          <h4>Faça seu login</h4>
+          <h4>Faça seu login, Administrador!</h4>
 
          <div className="py-2">
          <input 
@@ -57,11 +57,6 @@ export default function Logon() {
           />
           </div>
           <button className="button" type="submit">Entrar</button>
-
-          <Link className="back-link" to="/register">
-            <FiLogIn size={16} color="#5C9E6B" />
-            Não tenho cadastro
-          </Link>
         </form>
       </section>
 

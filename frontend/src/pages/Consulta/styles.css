@@ -117,3 +117,18 @@ a
   color:white;
   filter: brightness(90%);
 }
+
+
+.color-link{
+  color:#00a85a;
+
+}
+
+.color-link:hover{
+  color:#00a85a;
+  filter: brightness(90%);
+}
+
+.hr-link{
+  border:1px solid rgba(0, 0, 0, 0.1);
+}

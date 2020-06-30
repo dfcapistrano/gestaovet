@@ -7,7 +7,8 @@ import Consulta from './pages/Consulta';
 import ConsultaPet from './pages/ConsultaPet';
 import NewConsulta from './pages/NewConsulta';
 import NewPet from './pages/NewPet';
-
+import Adm from './pages/Adm';
+import AdmDashboard from './pages/ConsultaFunc';
 
 export default function Routes() {
   return (
@@ -19,6 +20,8 @@ export default function Routes() {
         <Route path="/consulta/pet" exact component={ConsultaPet}/>
         <Route path="/consulta/new" exact component={NewConsulta} />
         <Route path="/pet/new" exact component={NewPet}/>
+        <Route path="/admin" exact component={Adm}/>
+        <Route path="/dashboard/admin" exact component={AdmDashboard}/>
       </Switch>
     </BrowserRouter>
   )

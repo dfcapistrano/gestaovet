@@ -27,9 +27,9 @@
 }
 
 .register-container .content section h1 {
-  margin: 64px 0 32px;
+
   font-size: 25px !important;
-  margin-left:150px !important;
+ 
 }
 
   
@@ -38,7 +38,11 @@
   font-size: 18px;
   color: #737380;
   line-height: 32px;
-  text-indent: 50px;
+  text-indent: 25px;
+}
+
+.center{
+  margin-left:100px;
 }
 
 .register-container .content form {
@@ -60,7 +64,7 @@
 
 .img-logo-form{
   width: 300px;
-  margin-left: 80px;
+  margin-left:0;
   margin-top: 50px;
 }
 
