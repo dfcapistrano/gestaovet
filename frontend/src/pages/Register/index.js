@@ -5,7 +5,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../services/api'; // import comunicação com backend
 
 import './styles.css';
-import logoImg from '../../assets/logo01.png';
+import logoImg from '../../assets/form.svg';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -40,9 +40,10 @@ export default function Register() {
     <div className="register-container">
       <div className="content">
         <section>
-          <img className="img-logo" src={logoImg} alt="Gestão Vet" />
+          <h1>Cadastra-se</h1>
+          <img className="img-logo-form" src={logoImg} alt="Gestão Vet" />
 
-          <h1>Cadastro</h1>
+         
           <p>Faça seu cadastro, entre na plataforma e agende a sua consulta.</p>
 
           <Link className="back-link" to="/">

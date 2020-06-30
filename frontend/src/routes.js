@@ -5,6 +5,8 @@ import Logon from './pages/Logon';
 import Register from './pages/Register';
 import Consulta from './pages/Consulta';
 import NewConsulta from './pages/NewConsulta';
+import NewPet from './pages/NewPet';
+
 
 export default function Routes() {
   return (
@@ -14,6 +16,7 @@ export default function Routes() {
         <Route path="/register" component={Register} />
         <Route path="/consulta" exact component={Consulta} />
         <Route path="/consulta/new" exact component={NewConsulta} />
+        <Route path="/pet/new" exact component={NewPet}/>
       </Switch>
     </BrowserRouter>
   )

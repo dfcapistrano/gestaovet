@@ -5,7 +5,7 @@ import { FiLogIn } from 'react-icons/fi';
 import api from '../../services/api'; // import comunicação com backend
 
 import './styles.css'
-import heroesImg from '../../assets/pet02.jpg';
+import heroesImg from '../../assets/pet.svg';
 import logoImg from '../../assets/logo01.png';
 
 
@@ -35,8 +35,7 @@ export default function Logon() {
   return (
     <div className="logon-container">
       <section className="form">
-        <img className="img-logo" src={logoImg} alt="Gestão Vet" />
-
+        <img className="img-logo left" src={logoImg} alt="Gestão Vet" />
         <form onSubmit={handleLogin}>
           <h1>Faça seu logon</h1>
 

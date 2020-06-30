@@ -6,7 +6,7 @@ import api from '../../services/api'; // import comunicação com backend
 
 import './styles.css';
 
-import logoImg from '../../assets/welcome.svg';
+import logoImg from '../../assets/pet_new.svg';
 
 export default function NewConsulta() {
   const [especialidade, setEspecialidade] = useState([]);
@@ -42,8 +42,10 @@ export default function NewConsulta() {
     <div className="new-consulta-container">
       <div className="content">
         <section>
-          <h1>Cadastre sua nova consulta!</h1>
-          <img className="img-logo-new left" src={logoImg} alt="Gestão Vet"/>
+          <h1 className="left">Cadastre seu pet!</h1>
+          <img className="img-logo-pet" src={logoImg} alt="Gestão Vet"/>
+
+          
           <p>Preencha os campos ao lado para marcar uma consulta conosco.</p>
 
           <Link className="back-link" to="/consulta">
@@ -53,12 +55,13 @@ export default function NewConsulta() {
         </section>
 
         <form onSubmit={handleNewConsulta}>
-        <input
-            placeholder="Nome do Pet"
-            value={pet_id}
-            onChange={e => setPet_id(e.target.value)}
+
+          {/**<input
+            placeholder="Especialidade"
+            value={especialidade}
+            onChange={e => setEspecialidade(e.target.value)}
             required="true"
-          />
+          /> */}
           <select 
           placeholder="Especialidade"
           value={especialidade}
@@ -66,7 +69,6 @@ export default function NewConsulta() {
           required="true"
           className="select"
           >
-              <option value="" disabled selected>Selecione uma especialidade</option>
               <option value="Cardiologista">Cardiologista</option>
               <option value="Clínico Geral">Clínico Geral</option>
               <option value="Ortopedista">Ortopedista</option>
@@ -86,9 +88,14 @@ export default function NewConsulta() {
             onChange={e => setHora(e.target.value)}
             required="true"
           />
-         
+          <input
+            placeholder="Nome do Pet"
+            value={pet_id}
+            onChange={e => setPet_id(e.target.value)}
+            required="true"
+          />
 
-          <button className="button down" type="submit">Cadastrar</button>
+          <button className="button" type="submit">Cadastrar</button>
         </form>
       </div>
     </div>

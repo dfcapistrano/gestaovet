@@ -6,7 +6,7 @@ import api from '../../services/api'; // import comunicação com backend
 
 import './styles.css';
 
-import logoImg from '../../assets/logo01.png';
+import logoImg from '../../assets/profile.svg';
 
 export default function Consulta() {
 
@@ -49,17 +49,19 @@ export default function Consulta() {
   return (
     <div className="consulta-container">
       <header>
-        <img className="img-logo" src={logoImg} alt="Gestão Vet" />
+        <img className="" src={logoImg} alt="Gestão Vet" />
         <span>Bem vindo, {clienteNome}</span>
 
-        <Link className="button" to="/consulta/new">Cadastrar nova consulta</Link>
+        <Link className="button-index btn-left" to="/pet/new">Cadastrar pet</Link>
+        <Link className="button-index" to="/consulta/new">Cadastrar nova consulta</Link>
         <button onClick={handleLogout} type="button">
           <FiPower size={18} color="#5C9E6B" />
         </button>
       </header>
-
+      
       <h1>Consultas cadastradas</h1>
-
+      <hr></hr>
+      <br></br>
       <ul>
         {consultas.map(consulta => (
           <li key={consulta.email}>
@@ -74,7 +76,7 @@ export default function Consulta() {
             
             <strong>Pet:</strong>
             <p>{consulta.pet_id}</p>
-            <button onClick={() => handleDeleteConsulta(consulta.id)} type="button">
+            <button className="noBackground" onClick={() => handleDeleteConsulta(consulta.id)} type="button">
               <FiTrash2 size={20} color="#a8a8b3" />
             </button>
           </li>
