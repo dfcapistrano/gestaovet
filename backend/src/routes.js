@@ -24,10 +24,13 @@ routes.get('/funcionario', FuncionarioController.index); // List Funcionario
 routes.post('/funcionario', FuncionarioController.create); // Create Funcionario
 
 routes.get('/pet', PetController.index); // List Pet
+routes.get('/pet/all',PetController.all);
 routes.post('/pet', PetController.create); // Create Pet
+
 routes.delete('/pet/:id', PetController.delete); // Delete Pet
 
 routes.get('/consulta', ConsultaController.index); // List Consulta
+routes.get('/consulta/all', ConsultaController.all); // List Consulta
 routes.post('/consulta', ConsultaController.create); // Create Consulta
 routes.delete('/consulta/:id', ConsultaController.delete); // Delete Consulta
 

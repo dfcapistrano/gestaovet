@@ -52,10 +52,16 @@ form input {
 }
 
 .button:hover {
+    border:none;
     color:white;
     filter: brightness(90%);
 }
 
+
+.button:active{
+    border:none !important;
+    box-shadow: none !important;
+}
 .back-link {
   display: flex;
   align-items: center;
@@ -71,7 +77,8 @@ form input {
 }
 
 .back-link:hover {
-  opacity: 0.8;
+    color:#41414d !important;
+    opacity: 0.8;
 }
 
 .img-logo {

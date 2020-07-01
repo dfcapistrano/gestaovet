@@ -8,23 +8,19 @@ import "./styles.css";
 
 import logoImg from "../../assets/adm_index.svg";
 
-export default function ConsultaFuncs() {
+export default function ConsultaPet() {
   const history = useHistory();
 
-  const [funcionarios, setFuncionarios] = useState([]);
+  const [consultas, setConsultas] = useState([]);
 
   const admNome = localStorage.getItem("admNome");
   const admEmail = localStorage.getItem("admEmail");
 
   useEffect(() => {
     api
-      .get("funcionario", {
-        headers: {
-          Authorization: admEmail,
-        },
-      })
+      .get("cliente")
       .then((response) => {
-        setFuncionarios(response.data);
+        setConsultas(response.data);
       });
   }, [admEmail]);
 
@@ -32,11 +28,10 @@ export default function ConsultaFuncs() {
     localStorage.clear();
     history.push("/admin");
   }
-
   return (
     <div className="consulta-container">
-      <header>
-        <img className="logo-func" src={logoImg} alt="Gestão Vet" />
+     <header>
+        <img className="logo-func" src={logoImg} alt="Gestão Vet"/>
         <span>Bem vindo, {admNome}</span>
         <Link className="button-index" to="/funcionario/new">
           Cadastrar novo funcionário
@@ -51,10 +46,9 @@ export default function ConsultaFuncs() {
         <div className="row">
           <div className="col">
             <h4 className="text-center">
-              <Link className="color-link" to="/consulta">
+              <Link className="color-link" to="/dashboard">
                 Funcionários
               </Link>
-              <hr className="hr-link"></hr>
             </h4>
           </div>
           <div className="col">
@@ -69,55 +63,53 @@ export default function ConsultaFuncs() {
               <Link className="color-link" to="/dashboard/pet">
                 Pets
               </Link>
+             
             </h4>
           </div>
+         
           <div className="col">
             <h4 className="text-center">
               <Link className="color-link" to="/dashboard/clientes">
                 Clientes
               </Link>
+              <hr className="hr-link"></hr>
             </h4>
           </div>
         </div>
       </div>
-
       <div className="py-5">
         <ul>
-          {funcionarios.map((funcionarios) => (
-            <li key={funcionarios.email}>
+          {consultas.map((consulta) => (
+            <li key={consulta.email}>
               <div className="row">
                 <div className="col">
-                  <strong>Nome do funcionário:</strong>
-                  <p>{funcionarios.nome}</p>
+                  <strong>Nome:</strong>
+                  <p>{consulta.nome}</p>
                 </div>
                 <div className="col">
                   <strong>Sobrenome:</strong>
-                  <p>{funcionarios.sobrenome}</p>
+                  <p>{consulta.sobrenome}</p>
                 </div>
-                ,
-                <div className="col">
+              </div>
+              <div className="row">
+                
+              <div className="col">
                   <strong>E-mail:</strong>
-                  <p>{funcionarios.email}</p>
+                  <p>{consulta.email}</p>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-4">
+                <div className="col">
                   <strong>Telefone:</strong>
-                  <p>{funcionarios.telefone}</p>
-                </div>
-                <div className="col-2">
-                  <strong>Cargo:</strong>
-                  <p>{funcionarios.cargo}</p>
+                  <p>{consulta.telefone}</p>
                 </div>
               </div>
               <div className="row">
-                <div className="col-4">
-                  <strong>Cidade:</strong>
-                  <p>{funcionarios.cidade}</p>
+                <div className="col">
+                  <strong>UF:</strong>
+                  <p>{consulta.estado}</p>
                 </div>
-                <div className="col-4">
-                  <strong>Estado:</strong>
-                  <p>{funcionarios.estado}</p>
+                <div className="col">
+                  <strong>Cidade:</strong>
+                  <p>{consulta.cidade}</p>
                 </div>
               </div>
             </li>

@@ -7,8 +7,14 @@ module.exports = {
 
     // Listar
     async index(request, response) {
-        const pets = await connection('pet').select('*'); // Seleciona tudo da tabela de pet
+        const cliente_email = request.headers.authorization; 
+        const pets = await connection('pet').select('*').where('cliente_email',cliente_email); // Seleciona tudo da tabela de pet
         
+        return response.json(pets); // Retorna todos os pets cadastrados
+    },
+
+    async all(request, response) {
+        const pets = await connection('pet').select('*'); // Seleciona tudo da tabela de pet
         return response.json(pets); // Retorna todos os pets cadastrados
     },
 

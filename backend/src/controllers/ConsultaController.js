@@ -15,6 +15,12 @@ module.exports = {
         return response.json(consultas); // Retorna todos os consultas cadastrados
     },
 
+    //Listar
+    async all(request, response) {
+        const consultas = await connection('consulta').select('*');
+        return response.json(consultas); // Retorna todos os consultas cadastrados
+    },
+
     // Criar
     async create(request, response) {
         const { especialidade, data, hora, pet_id } = request.body; // Pega as informação 
@@ -36,6 +42,8 @@ module.exports = {
         return response.json({ especialidade, data, hora, cliente_email, pet_id }); // Retorna o ID do usuário que foi inserido no banco
     },
 
+
+    
     // Excluir
     async delete(request, response) {
         const { id } = request.params; // Pega o ID da Consulta

@@ -11,20 +11,16 @@ import logoImg from "../../assets/adm_index.svg";
 export default function ConsultaFuncs() {
   const history = useHistory();
 
-  const [funcionarios, setFuncionarios] = useState([]);
+  const [consultas, setConsultas] = useState([]);
 
   const admNome = localStorage.getItem("admNome");
   const admEmail = localStorage.getItem("admEmail");
 
   useEffect(() => {
     api
-      .get("funcionario", {
-        headers: {
-          Authorization: admEmail,
-        },
-      })
+      .get("/consulta/all")
       .then((response) => {
-        setFuncionarios(response.data);
+        setConsultas(response.data);
       });
   }, [admEmail]);
 
@@ -32,12 +28,12 @@ export default function ConsultaFuncs() {
     localStorage.clear();
     history.push("/admin");
   }
-
   return (
     <div className="consulta-container">
       <header>
-        <img className="logo-func" src={logoImg} alt="Gestão Vet" />
+        <img className="" src={logoImg} alt="Gestão Vet" />
         <span>Bem vindo, {admNome}</span>
+
         <Link className="button-index" to="/funcionario/new">
           Cadastrar novo funcionário
         </Link>
@@ -51,10 +47,10 @@ export default function ConsultaFuncs() {
         <div className="row">
           <div className="col">
             <h4 className="text-center">
-              <Link className="color-link" to="/consulta">
+              <Link className="color-link" to="/dashboard">
                 Funcionários
               </Link>
-              <hr className="hr-link"></hr>
+             
             </h4>
           </div>
           <div className="col">
@@ -62,6 +58,7 @@ export default function ConsultaFuncs() {
               <Link className="color-link" to="/dashboard/consulta">
                 Consultas
               </Link>
+              <hr className="hr-link"></hr>
             </h4>
           </div>
           <div className="col">
@@ -83,43 +80,21 @@ export default function ConsultaFuncs() {
 
       <div className="py-5">
         <ul>
-          {funcionarios.map((funcionarios) => (
-            <li key={funcionarios.email}>
-              <div className="row">
-                <div className="col">
-                  <strong>Nome do funcionário:</strong>
-                  <p>{funcionarios.nome}</p>
-                </div>
-                <div className="col">
-                  <strong>Sobrenome:</strong>
-                  <p>{funcionarios.sobrenome}</p>
-                </div>
-                ,
-                <div className="col">
-                  <strong>E-mail:</strong>
-                  <p>{funcionarios.email}</p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-4">
-                  <strong>Telefone:</strong>
-                  <p>{funcionarios.telefone}</p>
-                </div>
-                <div className="col-2">
-                  <strong>Cargo:</strong>
-                  <p>{funcionarios.cargo}</p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-4">
-                  <strong>Cidade:</strong>
-                  <p>{funcionarios.cidade}</p>
-                </div>
-                <div className="col-4">
-                  <strong>Estado:</strong>
-                  <p>{funcionarios.estado}</p>
-                </div>
-              </div>
+          {consultas.map((consulta) => (
+            <li key={consulta.email}>
+              <strong>E-mail do cliente:</strong>
+              <p>{consulta.cliente_email}</p>
+              <strong>Especialidade:</strong>
+              <p>{consulta.especialidade}</p>
+
+              <strong>Data:</strong>
+              <p>{consulta.data}</p>
+
+              <strong>Hora:</strong>
+              <p>{consulta.hora}</p>
+
+              <strong>Pet:</strong>
+              <p>{consulta.pet_id}</p>
             </li>
           ))}
         </ul>

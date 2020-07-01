@@ -112,9 +112,9 @@
   line-height: 40px;
   transition: filter 0.2s;
 }
-a
+
 .button-index:hover {
-  color:white;
+  color:white !important;
   filter: brightness(90%);
 }
 

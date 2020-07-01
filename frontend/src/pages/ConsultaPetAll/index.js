@@ -8,23 +8,19 @@ import "./styles.css";
 
 import logoImg from "../../assets/adm_index.svg";
 
-export default function ConsultaFuncs() {
+export default function ConsultaPet() {
   const history = useHistory();
 
-  const [funcionarios, setFuncionarios] = useState([]);
+  const [consultas, setConsultas] = useState([]);
 
   const admNome = localStorage.getItem("admNome");
   const admEmail = localStorage.getItem("admEmail");
 
   useEffect(() => {
     api
-      .get("funcionario", {
-        headers: {
-          Authorization: admEmail,
-        },
-      })
+      .get("pet/all")
       .then((response) => {
-        setFuncionarios(response.data);
+        setConsultas(response.data);
       });
   }, [admEmail]);
 
@@ -35,8 +31,8 @@ export default function ConsultaFuncs() {
 
   return (
     <div className="consulta-container">
-      <header>
-        <img className="logo-func" src={logoImg} alt="Gestão Vet" />
+     <header>
+        <img className="logo-func" src={logoImg} alt="Gestão Vet"/>
         <span>Bem vindo, {admNome}</span>
         <Link className="button-index" to="/funcionario/new">
           Cadastrar novo funcionário
@@ -51,10 +47,9 @@ export default function ConsultaFuncs() {
         <div className="row">
           <div className="col">
             <h4 className="text-center">
-              <Link className="color-link" to="/consulta">
+              <Link className="color-link" to="/dashboard">
                 Funcionários
               </Link>
-              <hr className="hr-link"></hr>
             </h4>
           </div>
           <div className="col">
@@ -69,8 +64,10 @@ export default function ConsultaFuncs() {
               <Link className="color-link" to="/dashboard/pet">
                 Pets
               </Link>
+              <hr className="hr-link"></hr>
             </h4>
           </div>
+         
           <div className="col">
             <h4 className="text-center">
               <Link className="color-link" to="/dashboard/clientes">
@@ -80,44 +77,40 @@ export default function ConsultaFuncs() {
           </div>
         </div>
       </div>
-
       <div className="py-5">
         <ul>
-          {funcionarios.map((funcionarios) => (
-            <li key={funcionarios.email}>
+          {consultas.map((consulta) => (
+            <li key={consulta.email}>
               <div className="row">
-                <div className="col">
-                  <strong>Nome do funcionário:</strong>
-                  <p>{funcionarios.nome}</p>
-                </div>
-                <div className="col">
-                  <strong>Sobrenome:</strong>
-                  <p>{funcionarios.sobrenome}</p>
-                </div>
-                ,
-                <div className="col">
-                  <strong>E-mail:</strong>
-                  <p>{funcionarios.email}</p>
+                <div className="col-lg-12">
+                  <strong>Nome do pet:</strong>
+                  <p>{consulta.nome}</p>
                 </div>
               </div>
               <div className="row">
-                <div className="col-4">
-                  <strong>Telefone:</strong>
-                  <p>{funcionarios.telefone}</p>
+                
+              <div className="col">
+                  <strong>Peso:</strong>
+                  <p>{consulta.peso}</p>
                 </div>
-                <div className="col-2">
-                  <strong>Cargo:</strong>
-                  <p>{funcionarios.cargo}</p>
+                <div className="col-8">
+                  <strong>Idade:</strong>
+                  <p>{consulta.idade}</p>
                 </div>
               </div>
               <div className="row">
+                <div className="col">
+                  <strong>Sexo:</strong>
+                  <p>{consulta.sexo}</p>
+                </div>
+  
                 <div className="col-4">
-                  <strong>Cidade:</strong>
-                  <p>{funcionarios.cidade}</p>
+                  <strong>Raça:</strong>
+                  <p>{consulta.raca}</p>
                 </div>
                 <div className="col-4">
-                  <strong>Estado:</strong>
-                  <p>{funcionarios.estado}</p>
+                  <strong>Espécie:</strong>
+                  <p>{consulta.especie}</p>
                 </div>
               </div>
             </li>

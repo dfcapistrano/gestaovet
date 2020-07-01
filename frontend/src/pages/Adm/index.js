@@ -26,7 +26,7 @@ export default function Logon() {
       localStorage.setItem('admEmail', email);
       localStorage.setItem('admNome', response.data.nome);
 
-      history.push('/dashboard/adm');
+      history.push('/dashboard');
     } catch (err) {
       alert('Falha no login, tente novamente.');
     }
